@@ -59,7 +59,8 @@ namespace NumbersToWords
     public int[] InputArray { get; set; }
     public string[] OutputArray { get; set; }
     public static Dictionary<int, string> Digits = new Dictionary<int, string>() { {0, ""}, {1, "one"}, {2, "two"}, {3, "three"}, {4, "four"}, {5, "five"}, {6, "six"}, {7, "seven"}, {8, "eight"}, {9, "nine"} };
-    //public static Dictionary<int, 
+    public static Dictionary<int, string> NumPlaces = new Dictionary<int, string>() { {0, ""}, {1, ""}, {2, "hundred"}, {3, "thousand"}, {4, "-thousand"}, {5, "hundred-thousand"}, {6, "million"}, {7, "-million"}, {8, "hundred-million"}, {9, "billion"}, {10, "-billion"}, {11, "hundred-billion"}, {12, "trillion"} };
+    
     public Number(string input)
     {
       int[] arrayed = new int[input.Length];
@@ -73,7 +74,8 @@ namespace NumbersToWords
 
     public void BasicConvert()
     {
-      for (int i = 0; i < 12; i++)
+      int l = InputStr.Length;
+      for (int i = 0; i < l; i++)
       {
         if (Digits.ContainsKey(InputArray[i]))
         {
@@ -89,8 +91,8 @@ namespace NumbersToWords
       {
         Console.WriteLine(InputStr);
         InputArray[i] = Convert.ToInt32(Char.GetNumericValue(InputStr[i]));
+        Console.WriteLine(InputArray[i]);
       }
-      Console.WriteLine(InputArray);
     }
 
 //char foo = '2';
