@@ -1,6 +1,6 @@
 # Numbers To Words
 
-#### By _**Alex Shevlin, Zac Waggoner**_  
+#### By _**Alex Shevlin, Zac Waggoner, Tyler Emmerson**_  
 
 #### _Translates numbers and returns them as written words._  
 
@@ -68,7 +68,7 @@ This program was built using *[Microsoft .NET SDK 5.0.401](https://dotnet.micros
 
 [MIT](/LICENSE)
 
-Copyright (c) 2022 Alex Shevlin, Zac Waggoner
+Copyright (c) 2022 Alex Shevlin, Zac Waggoner, Tyler Emmerson
 
 ### **Tests**
 
