@@ -32,16 +32,29 @@ namespace NumbersToWords.Tests
     }
     
     [TestMethod]
-    public void TensConvert_ReturnsTensInputAsWords_Array()
+    public void TensConvert_ReturnsTensInputAsTenty_String()
     {
       // any necessary logic to prep for test; instantiating new classes, etc.
-      string num = "110";
+      string num = "10";
       string ten = "tenty";
       Number newNumber = new Number(num);
       newNumber.SetInputArray();
-      newNumber.TensConvert(1);
-      Console.WriteLine(newNumber.OutputArray[1]);
-      Assert.AreEqual(ten, newNumber.OutputArray[1]);
+      newNumber.TensConvert(0);
+      Console.WriteLine(newNumber.OutputArray[0]);
+      Assert.AreEqual(ten, newNumber.OutputArray[0]);
+    }
+
+    [TestMethod]
+    public void TensConvert_ReturnsTensInputAsWordSixty_string()
+    {
+      // any necessary logic to prep for test; instantiating new classes, etc.
+      string num = "60";
+      string ten = "sixty";
+      Number newNumber = new Number(num);
+      newNumber.SetInputArray();
+      newNumber.TensConvert(0);
+      Console.WriteLine(newNumber.OutputArray[0]);
+      Assert.AreEqual(ten, newNumber.OutputArray[0]);
     }
   }
 }
