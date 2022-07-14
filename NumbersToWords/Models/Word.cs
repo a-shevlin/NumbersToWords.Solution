@@ -1,26 +1,10 @@
-//Prompt
-  //console app that takes a word and returns the scrabble score for that word.
-  //A, E, I, O, U, L, N, R, S, T == 1
-  //D, G                         == 2
-  //B, C, M, P                   == 3
-  //K                            == 5
-  //J, X                         == 8
-  //Q, Z                         == 10
-
-//Requirements
-
-//Further Exploration
-
-
-
-
 using System;
 
-namespace NumbersToWords
+namespace ScrabbleScorer
 {
   public class Word
   {
-    public string Input { get; set; }
+    public string Input { get; set;}
     public char[] InputArray { get; set;}
     public int WordScore { get; set; }
     // properties, constructors, methods, etc. go here

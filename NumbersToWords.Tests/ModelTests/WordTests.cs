@@ -1,9 +1,10 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NumbersToWords;
+using ScrabbleScorer;
 using System; 
 
-namespace NumbersToWords.Tests
+namespace ScrabbleScorer.Tests
 {
+  /*
   [TestClass]
   public class WordTests
   {
@@ -58,4 +59,5 @@ namespace NumbersToWords.Tests
       Assert.AreEqual(41, newWord.WordScore);
     }
   }
+  */
 }

@@ -6,6 +6,11 @@ namespace NumbersToWords
   {
     public static void Main()
     {
+
+    }
+  }
+}
+      /*
       Console.WriteLine("Scrabble Word Score Calculator");
       Repeat();
     }
@@ -20,7 +25,5 @@ namespace NumbersToWords
       newWord.AddScore();
       Console.WriteLine("The word " + newWord.Input + " scores " + newWord.WordScore + " points.");
       Repeat();
-      }
-    }
-  }
-}
+    }*/
+
