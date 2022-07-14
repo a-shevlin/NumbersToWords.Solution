@@ -60,6 +60,7 @@ namespace NumbersToWords
     public string[] OutputArray { get; set; }
     public static Dictionary<int, string> Digits = new Dictionary<int, string>() { {0, ""}, {1, "one"}, {2, "two"}, {3, "three"}, {4, "four"}, {5, "five"}, {6, "six"}, {7, "seven"}, {8, "eight"}, {9, "nine"} };
     public static Dictionary<int, string> NumPlaces = new Dictionary<int, string>() { {0, ""}, {1, ""}, {2, "hundred"}, {3, "thousand"}, {4, "-thousand"}, {5, "hundred-thousand"}, {6, "million"}, {7, "-million"}, {8, "hundred-million"}, {9, "billion"}, {10, "-billion"}, {11, "hundred-billion"}, {12, "trillion"} };
+    public static Dictionary<int, string> TensPlace = new Dictionary<int, string>() { {1, "tenty"}, {2, "twenty"}, {3, "thirty"}, {4, "forty"}, {5, "fifty"}};
     
     public Number(string input)
     {
@@ -70,6 +71,19 @@ namespace NumbersToWords
       Input = int.Parse(input);
       InputArray = arrayed;
       OutputArray = outputArray;
+    }
+
+    public void TensConvert(int place)
+    {
+      if (TensPlace.ContainsKey(InputArray[place]))
+      {
+        OutputArray[place] = TensPlace[InputArray[place]];
+      }
+      else
+      {
+        OutputArray[place] = Digits[InputArray[place]];
+        OutputArray[place] += "ty";
+      }
     }
 
     public void BasicConvert()
@@ -89,9 +103,7 @@ namespace NumbersToWords
       int l = InputStr.Length;
       for (int i = 0; i < l; i++)
       {
-        Console.WriteLine(InputStr);
         InputArray[i] = Convert.ToInt32(Char.GetNumericValue(InputStr[i]));
-        Console.WriteLine(InputArray[i]);
       }
     }
 
