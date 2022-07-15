@@ -56,5 +56,22 @@ namespace NumbersToWords.Tests
       Console.WriteLine(newNumber.OutputArray[0]);
       Assert.AreEqual(ten, newNumber.OutputArray[0]);
     }
+
+    [TestMethod]
+    public void FullNumConvert_ReturnLargeNumberToString_String()
+    {
+      // any necessary logic to prep for test; instantiating new classes, etc.
+      string num = "4641365";
+      int numLength = num.Length;
+      string ten = "sixty";
+      Number newNumber = new Number(num);
+      newNumber.SetInputArray();
+      newNumber.FullNumConvert(4, 1);
+      for (int i = 0; i < numLength; i ++) //compares inside each
+      {
+        Console.WriteLine(newNumber.OutputArray[i]);
+      }
+      Assert.AreEqual(ten, newNumber.OutputArray[0]);
+    }
   }
 }

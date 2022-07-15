@@ -59,7 +59,7 @@ namespace NumbersToWords
     public int[] InputArray { get; set; }
     public string[] OutputArray { get; set; }
     public static Dictionary<int, string> Digits = new Dictionary<int, string>() { {0, ""}, {1, "one"}, {2, "two"}, {3, "three"}, {4, "four"}, {5, "five"}, {6, "six"}, {7, "seven"}, {8, "eight"}, {9, "nine"} };
-    public static Dictionary<int, string> NumPlaces = new Dictionary<int, string>() { {0, ""}, {1, ""}, {2, "hundred"}, {3, "thousand"}, {4, "-thousand"}, {5, "hundred-thousand"}, {6, "million"}, {7, "-million"}, {8, "hundred-million"}, {9, "billion"}, {10, "-billion"}, {11, "hundred-billion"}, {12, "trillion"} };
+    public static Dictionary<int, string> NumPlaces = new Dictionary<int, string>() { {0, ""}, {1, ""}, {2, "hundred"}, {3, "thousand"}, {4, "-thousand"}, {5, "hundred"}, {6, "million"}, {7, "-million"}, {8, "hundred"}, {9, "billion"}, {10, "-billion"}, {11, "hundred"}, {12, "trillion"} };
     public static Dictionary<int, string> TensPlace = new Dictionary<int, string>() { {1, "tenty"}, {2, "twenty"}, {3, "thirty"}, {4, "forty"}, {5, "fifty"}};
     
     public Number(string input)
@@ -71,6 +71,52 @@ namespace NumbersToWords
       Input = int.Parse(input);
       InputArray = arrayed;
       OutputArray = outputArray;
+    }
+
+    public void FullNumConvert(int place, int gee) {
+      switch(gee)
+      {
+      case 0:
+        SingleConvert(place);
+        gee += 1;
+        place += -1;
+        FullNumConvert(place, gee);
+        break;
+      case 1:
+        HundredsConvert(place);
+        gee += 1;
+        place += -1;
+        FullNumConvert(place, gee);
+        break;
+      case 2:
+        TensConvert(place);
+        gee += 1;
+        place += -1;
+        FullNumConvert(place, gee);
+        break;
+      case 3:
+        SingleConvert(place);
+        gee += 1;
+        place += -1;
+        FullNumConvert(place, gee);
+        break;
+      case 4:
+        SingleConvert(place);
+        HundredsConvert(place);
+        gee += 1;
+        place += -1;
+        FullNumConvert(place, gee);
+        break;
+      case 5:
+        TensConvert(place);
+        gee += 1;
+        place += -1;
+        FullNumConvert(place, gee);
+        break;
+      default:
+        SingleConvert(place);
+        break;
+      }
     }
 
     public void TensConvert(int place)
@@ -85,8 +131,11 @@ namespace NumbersToWords
         OutputArray[place] += "ty";
       }
     }
-
-    //
+    
+    public void HundredsConvert(int place)
+    {
+      OutputArray[place] += "hundred";
+    }
 
     public void BasicConvert()
     {
@@ -100,6 +149,11 @@ namespace NumbersToWords
       }
     }
 
+    public void SingleConvert(int place)
+    {
+      OutputArray[place] = Digits[InputArray[place]];
+    }
+
     public void SetInputArray()
     {
       int l = InputStr.Length;
@@ -108,8 +162,5 @@ namespace NumbersToWords
         InputArray[i] = Convert.ToInt32(Char.GetNumericValue(InputStr[i]));
       }
     }
-
-//char foo = '2';
-//int bar = foo - '0';
   }
 }

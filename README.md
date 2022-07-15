@@ -72,6 +72,8 @@ Copyright (c) 2022 Alex Shevlin, Zac Waggoner, Tyler Emmerson
 
 ### **Tests**
 
+#### *WordTests*
+
 <table>
   <tr>
     <th>Describe</th>
@@ -121,3 +123,25 @@ Copyright (c) 2022 Alex Shevlin, Zac Waggoner, Tyler Emmerson
     <td>newWord.WordScore === 4</td>
   </tr>
 </table>
+
+#### *NumberTests*
+
+<table>
+  <tr>
+    <th>Describe</th>
+    <th>Code</th>
+    <th>Expected Output</th>
+  </tr>
+  <tr>
+    <td>returns input string to int array</td>
+    <td>
+      string test = "1234";
+    <br>
+      Number newNumber = new Number(test);
+    <br>
+      newNumber.SetInputArray();
+    </td>
+    <td>newNumber.InputArray === 1, 2, 3, 4};</td>
+  </tr>
+  <tr>
+  </tr>
